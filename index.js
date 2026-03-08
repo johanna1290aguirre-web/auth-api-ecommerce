@@ -23,25 +23,14 @@ app.use(cors({
   credentials: true
 }));
 
-// Rutas de la API
+app.use(express.json());
+
 app.use('/api/productos', productRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/carrito', cartRoutes);  // ✅ Acá va, después de definir app
+app.use('/api/carrito', cartRoutes);
 
 app.get('/ping', (req, res) => {
   res.json({ message: 'pong', timestamp: new Date().toISOString() });
-});
-
-app.get('/', (req, res) => {
-  res.json({ 
-    message: 'API de Ecommerce Saludable funcionando',
-    timestamp: new Date().toISOString()
-  });
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
-  console.log(`📝 Prueba el servidor en http://localhost:${PORT}/ping`);
 });
 
 app.get('/', (req, res) => {
