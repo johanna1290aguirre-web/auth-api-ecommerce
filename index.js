@@ -19,7 +19,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: 'https://ecommerce-saludable-react.vercel.app',
+  origin: ['https://hydronova-ecommerce.vercel.app', 'https://ecommerce-saludable-react.vercel.app'],
   credentials: true
 }));
 
